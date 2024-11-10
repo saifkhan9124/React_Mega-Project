@@ -81,7 +81,7 @@ export class Service {
         queries
       );
     } catch (error) {
-      console.log("Appwrite service::getost:: error", error);
+      console.log("Appwrite service::gePosts:: error", error);
       return false;
     }
   }
