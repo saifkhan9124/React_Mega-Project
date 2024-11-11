@@ -17,10 +17,11 @@ const RTE = ({ name, control, label, defaultValue = "" }) => {
       <Controller
         name={name || "content"}
         control={control}
+        defaultValue={defaultValue}
         render={({ field: { onChange, value } }) =>
           Editor ? (
             <Editor
-              initialValue={defaultValue}
+              value={value} // Controlled by react-hook-form
               init={{
                 height: 500,
                 menubar: true,
@@ -50,8 +51,7 @@ const RTE = ({ name, control, label, defaultValue = "" }) => {
                 content_style:
                   "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
               }}
-              onEditorChange={onChange}
-              value={value} // sync value from react-hook-form
+              onEditorChange={onChange} // Updates react-hook-form on content change
             />
           ) : null
         }
